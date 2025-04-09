@@ -1,14 +1,9 @@
-/*const screenWidth = window.screen.width;
-const sketchPadWidth = screenWidth - 50;*/
-/* Testing createElement*/
 
+
+//sets default grid width x height to 16
 let gridBy = 16;
-document.querySelector("button").addEventListener("click", () => {
-    let gridBy = prompt("What do you want the resolution to be? (Please enter one number that will be the dimensions of both x and y", "16");
-    gridBy.parseInt();
-    return gridBy;
-});
 
+//creates responsively sized square divs according to desired dimensions
 function createGrid(gridSize) {
     let totalGrid = gridSize * gridSize;
     let percentWidth = 100/gridSize;
@@ -22,7 +17,25 @@ function createGrid(gridSize) {
     }
 }
 
+//runs initial grid creation
 createGrid(gridBy);
+
+
+
+//prompts user to change grid dimensions, runs new grid
+document.querySelector("button").addEventListener("click", () => {
+    let gridBy = prompt("What do you want the dimensions to be? (Please enter one number that will be the dimensions of both x and y)", "16");
+    gridBy = parseInt(gridBy);
+    //removes all previously created grid divs 
+    const allGridDiv = document.querySelectorAll(".grid");
+    allGridDiv.forEach( grid => {
+            grid.remove();
+        });
+    //creates new grids
+    createGrid(gridBy);
+});
+
+
 
     /*for (let i = 0; i < gridSize; i++) {
         const containerDiv = document.querySelector(".container");
