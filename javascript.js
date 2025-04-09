@@ -4,9 +4,27 @@ const sketchPadWidth = screenWidth - 50;*/
 
 
 
-function createColumnGrid(gridSize) {
+function createGrid(gridSize) {
+    let totalGrid = gridSize * gridSize;
+    console.log(totalGrid);
+    let percentWidth = 100/gridSize;
+    console.log(percentWidth);
+    for (let i = 0; i < totalGrid; i++){
+        const containerDiv = document.querySelector(".container");
+        const gridDiv = document.createElement("div");
+        gridDiv.className = "grid";
+        gridDiv.style.minWidth= percentWidth.toString() + "%";
+        console.log(gridDiv.style.width);
+        gridDiv.style.paddingBottom = percentWidth.toString() + "%";
+        console.log(gridDiv.style.paddingBottom);
+        containerDiv.appendChild(gridDiv);
+        console.log("Round: ${i}");
+    }
+}
 
-    for (let i = 0; i < gridSize; i++) {
+createGrid(16);
+
+    /*for (let i = 0; i < gridSize; i++) {
         const containerDiv = document.querySelector(".container");
         const columnDiv = document.createElement("div");
         columnDiv.className = "column empty";
@@ -25,30 +43,5 @@ function createColumnGrid(gridSize) {
         createDivGrid();
     }
 
-};
+};*/
 
-createColumnGrid(16);
-
-
-
-/*
-function createDivGrid(gridSize) {
-    const containerDiv = document.querySelector(".container");
-
-    // Creates column divs equal to the grid size
-    for (let i = 0; i < gridSize; i++) {
-        const columnDiv = document.createElement("div");
-        columnDiv.className = "column";
-        containerDiv.appendChild(columnDiv);
-        // Creates grid divs equal to grid size in each column div 
-        for (let i = 0; i < gridSize; i++){
-            const findColumnDiv = document.querySelector(".column");
-            const gridDiv = document.createElement("div");
-            gridDiv.className = "grid";
-            findColumnDiv.appendChild(gridDiv);
-        }
-    }
-}
-
-createDivGrid(16);
-*/

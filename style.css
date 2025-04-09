@@ -27,14 +27,13 @@ div{
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 10px;
 }
 
 .grid {
-    padding: 0;
     box-sizing: border-box;
     background-color: brown;
     flex: 1;
+
 }
 
 .column {
