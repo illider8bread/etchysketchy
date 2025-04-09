@@ -2,27 +2,27 @@
 const sketchPadWidth = screenWidth - 50;*/
 /* Testing createElement*/
 
-
+let gridBy = 16;
+document.querySelector("button").addEventListener("click", () => {
+    let gridBy = prompt("What do you want the resolution to be? (Please enter one number that will be the dimensions of both x and y", "16");
+    gridBy.parseInt();
+    return gridBy;
+});
 
 function createGrid(gridSize) {
     let totalGrid = gridSize * gridSize;
-    console.log(totalGrid);
     let percentWidth = 100/gridSize;
-    console.log(percentWidth);
     for (let i = 0; i < totalGrid; i++){
         const containerDiv = document.querySelector(".container");
         const gridDiv = document.createElement("div");
         gridDiv.className = "grid";
         gridDiv.style.minWidth= percentWidth.toString() + "%";
-        console.log(gridDiv.style.width);
         gridDiv.style.paddingBottom = percentWidth.toString() + "%";
-        console.log(gridDiv.style.paddingBottom);
         containerDiv.appendChild(gridDiv);
-        console.log("Round: ${i}");
     }
 }
 
-createGrid(16);
+createGrid(gridBy);
 
     /*for (let i = 0; i < gridSize; i++) {
         const containerDiv = document.querySelector(".container");
