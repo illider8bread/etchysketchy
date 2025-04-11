@@ -1,9 +1,5 @@
-:root {
-    --red: red;
-}
-
 body {
-    background-color: aliceblue;
+    background-color: grey;
 
 }
 
@@ -14,24 +10,21 @@ body {
     justify-content: center;
     align-items: center;
     padding: 30px 0px;
+    background-color: inherit;
 }
 
 button{
-    margin-bottom: 30px;
-    background-color: blueviolet;
+    margin-top: 30px;
+    background-color: whitesmoke;
     border-style:none;
     border-radius: 10px;
     padding: 10px;
 }
 
-div{
-    background-color: aliceblue;
-}
-
 .container {
-    width: 500px;
-    height: 500px;
-    background-color: black;
+    width: 90%;
+    max-width: 590px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -40,18 +33,16 @@ div{
 
 .grid {
     box-sizing: border-box;
-    background-color: brown;
+    background-color: whitesmoke;
     flex: 1;
 
 }
 
-.column {
-    padding: 0;
-    background-color: green;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    height: 100%;
-   
+.grid:hover{
+    background-color: #21130d;
+    transition-duration: 2ms;
+}
 
+.grid:not(hover){
+    transition-duration: 10s;
 }

@@ -1,5 +1,5 @@
 
-
+focus(".container");
 //sets default grid width x height to 16
 let gridBy = 16;
 
@@ -24,15 +24,21 @@ createGrid(gridBy);
 
 //prompts user to change grid dimensions, runs new grid
 document.querySelector("button").addEventListener("click", () => {
+    function removeGrid(){
+            //removes all previously created grid divs 
+    const allGridDiv = document.querySelectorAll(".grid");
+    allGridDiv.forEach(grid => {grid.remove();});
+    }
+    removeGrid();
     let gridBy = prompt("What do you want the dimensions to be? (Please enter one number that will be the dimensions of both x and y)", "16");
     gridBy = parseInt(gridBy);
-    //removes all previously created grid divs 
-    const allGridDiv = document.querySelectorAll(".grid");
-    allGridDiv.forEach( grid => {
-            grid.remove();
-        });
-    //creates new grids
-    createGrid(gridBy);
+    if (gridBy <= 100 && gridBy > 0){
+        //creates new grids
+        createGrid(gridBy);
+    } else {
+        alert("ERROR: The dimensions you chose will not work. Please try a number between 1 and 100");
+    }
+    
 });
 
 
